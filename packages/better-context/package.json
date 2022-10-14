@@ -1,6 +1,6 @@
 {
   "name": "better-context",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Better React contexts - that's it",
   "main": "dist/index.js",
   "type": "module",
