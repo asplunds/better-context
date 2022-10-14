@@ -1,7 +1,7 @@
 import type React from "react";
 import { createContext, useContext } from "react";
 import betterProvider from "./BetterProvider";
-import state, { default as stateWrapper } from "./state";
+import { default as stateWrapper } from "./state";
 
 type BetterProvider<T> = {
   (): T;
@@ -37,7 +37,5 @@ const betterContext: Factory = (value) => {
 
   return builder as any;
 };
-
-const test = betterContext(() => false);
 
 export default betterContext;

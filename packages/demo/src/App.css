@@ -2,4 +2,34 @@ body,
 html {
   background: #222;
   color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: arial;
+}
+
+.box {
+  display: flex;
+  gap: 40px;
+  font-size: 3em;
+  align-items: center;
+}
+
+button {
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0.3em .5em;
+  background: rgb(95, 95, 215);
+  color: #ccc;
+  border: none;
+  border-radius: .2em;
+  cursor: pointer;
+  min-width: 1.6em;
+}
+button:hover {
+  filter: brightness(90%);
+}
+button:active {
+  transform: scale(.99);
 }

@@ -20,12 +20,14 @@ function App() {
 
 function Consumer() {
   const { counter } = useCoolContext();
-  
+
   return (
     <>
-      <button onClick={() => counter.value--}>-1</button>
-      {counter.value}
-      <button onClick={() => counter.set((prev) => prev + 1)}>+1</button>
+      <div className="box">
+        <button onClick={() => counter.value--}>-</button>
+        {counter.value}
+        <button onClick={() => counter.value++}>+</button>
+      </div>
     </>
   );
 }
