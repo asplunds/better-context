@@ -6,16 +6,20 @@
   "type": "module",
   "scripts": {
     "prepack": "tsc",
-    "postpublish": "tsc --build --cleanup"
+    "postpublish": "tsc --build --clean"
   },
   "author": "Jonathan Asplund <jonathan@asplund.net>",
   "license": "ISC",
   "peerDependencies": {
     "react": "*"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asplunds/better-context.git"
+  },
   "exports": {
     "./lib/*": null,
     ".": "./index.ts"
   },
-  "gitHead": "7c2f4d9e2e031591a6d6e34c065eb30641c55bdc"
+  "gitHead": "7c36bdbc3f7058fd728380123b9440ce0eeec70b"
 }
