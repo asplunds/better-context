@@ -21,5 +21,8 @@
     "./lib/*": null,
     ".": "./index.ts"
   },
-  "gitHead": "7c36bdbc3f7058fd728380123b9440ce0eeec70b"
+  "gitHead": "7c36bdbc3f7058fd728380123b9440ce0eeec70b",
+  "keywords": [
+    "react", "context", "state", "better-context"
+  ]
 }
