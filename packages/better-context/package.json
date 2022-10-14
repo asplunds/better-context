@@ -15,5 +15,6 @@
   "exports": {
     "./lib/*": null,
     ".": "./index.ts"
-  }
+  },
+  "gitHead": "6fc687cf7eab35d5a4b1afa8f0d7f3e4db875bf5"
 }
