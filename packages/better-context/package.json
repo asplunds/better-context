@@ -1,7 +1,7 @@
 {
   "name": "better-context",
   "version": "1.0.6",
-  "description": "Better React contexts - that's it",
+  "description": "Tiny React context wrapper for using contexts without the hassle",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
