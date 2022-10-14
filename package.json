@@ -1,6 +1,9 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "pub": "npx lerna publish --no-private"
+  },
   "workspaces": [
     "packages/*"
   ],
