@@ -9,7 +9,7 @@
     "postpublish": "tsc --build --clean"
   },
   "author": "Jonathan Asplund <jonathan@asplund.net>",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "react": "*"
   },

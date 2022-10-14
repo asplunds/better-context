@@ -2,64 +2,22 @@
 
 Tiny React context wrapper for using contexts without the hassle
 
-## Installation
+This is a monorepo for this package. If you are looking for instructions on how to use this package click [here](https://github.com/asplunds/better-context/tree/main/packages/better-context).
+
+## Getting started
 
 ```
-npm i better-context
+git clone https://github.com/asplunds/better-context.git
 ```
 
-or with yarn:
-
 ```
-yarn add better-context
+cd better-context
 ```
 
-## Usage
-
-Create a context
-
-```ts
-const useCoolContext = betterContext(({ state }) => {
-  const counter = useState(0);
-
-  return {
-    foo: "bar",
-    counter: state(counter), // using the state wrapper is optional
-  };
-});
+```
+npm i
 ```
 
-Provide it at highest common ancestor
-
-```tsx
-function App() {
-  return (
-    <useCoolContext.Provider>
-      <Component />
-    </useCoolContext.Provider>
-  );
-}
 ```
-
-Consume the context
-
-```tsx
-function Component() {
-  const { counter } = useCoolContext();
-
-  // counter.value   (get)          ✅
-  // counter.value = 123            ✅
-  // counter.value++                ✅
-  // counter.set(prev => prev + 1)  ✅
-
-  return (
-    <>
-      <button onClick={() => counter.value--}>-</button>
-      {counter.value}
-      <button onClick={() => counter.value++}>+</button>
-    </>
-  );
-}
+npm run dev --prefix packages/demo
 ```
-
-It's that simple!
