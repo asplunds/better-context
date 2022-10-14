@@ -27,5 +27,8 @@
     "context",
     "state",
     "better-context"
+  ],
+  "files": [
+    "/dist"
   ]
 }
