@@ -2,7 +2,7 @@ import { useState } from "react";
 import betterContext from "better-context";
 import "./App.css";
 
-const useCoolContext = betterContext(({ state }) => {
+const useCoolContext = betterContext<string>()(({ state, provided }) => {
   const counter = useState(0);
 
   return {
@@ -12,7 +12,7 @@ const useCoolContext = betterContext(({ state }) => {
 
 function App() {
   return (
-    <useCoolContext.Provider>
+    <useCoolContext.Provider provide={"hi"}>
       <Consumer />
     </useCoolContext.Provider>
   );
@@ -22,13 +22,11 @@ function Consumer() {
   const { counter } = useCoolContext();
 
   return (
-    <>
-      <div className="box">
-        <button onClick={() => counter.value--}>-</button>
-        {counter.value}
-        <button onClick={() => counter.value++}>+</button>
-      </div>
-    </>
+    <div className="box">
+      <button onClick={() => counter.value--}>-</button>
+      {counter.value}
+      <button onClick={() => counter.value++}>+</button>
+    </div>
   );
 }
 

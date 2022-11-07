@@ -3,39 +3,41 @@ import { createContext, useContext } from "react";
 import betterProvider from "./BetterProvider";
 import { default as stateWrapper } from "./state";
 
-type BetterProvider<T> = {
+type BetterProvider<T, S> = {
   (): T;
   readonly Provider: (
-    props: Omit<React.ProviderProps<T>, "value">
+    props: Omit<React.ProviderProps<T>, "value"> & {
+      provide?: S;
+    }
   ) => JSX.Element;
 };
 
-type Factory = <T extends {}>(
-  fn: ({
-    state,
-  }: {
-    state: <T>(input: [T, React.Dispatch<React.SetStateAction<T>>]) => {
-      set: React.Dispatch<React.SetStateAction<T>>;
-      value: T;
+function betterContext<S = void>() {
+  return function <T>(
+    cb: (v: {
+      state: <T>(input: [T, ((n: T | (((n: T) => T))) => T | void)]) => {
+        set: ((n: T | (((n: T) => T))) => T | void);
+        value: T;
+      };
+      provided: S;
+    }) => T
+  ): BetterProvider<T, S> {
+    const context = createContext({});
+
+    const builder = function () {
+      return useContext(context);
     };
-  }) => T
-) => BetterProvider<T>;
 
-const betterContext: Factory = (value) => {
-  const context = createContext({});
+    Object.defineProperty(builder, "Provider", {
+      value: betterProvider<T, S>(
+        context.Provider as React.Provider<T>,
+        (provided: S) => cb({ state: stateWrapper, provided })
+      ),
+      writable: false,
+    });
 
-  const builder = function () {
-    return useContext(context);
+    return builder as any;
   };
-
-  Object.defineProperty(builder, "Provider", {
-    value: betterProvider(context.Provider, () =>
-      value({ state: stateWrapper })
-    ),
-    writable: false,
-  });
-
-  return builder as any;
-};
+}
 
 export default betterContext;

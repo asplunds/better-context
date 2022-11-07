@@ -19,12 +19,13 @@ yarn add better-context
 Create a context
 
 ```ts
-const useCoolContext = betterContext(({ state }) => {
+const useCoolContext = betterContext()(({ state, provided }) => {
   const counter = useState(0);
 
   return {
     foo: "bar",
     counter: state(counter), // using the state wrapper is optional
+    output: "foo bar " + provided, // "foo bar baz"
   };
 });
 ```
@@ -34,7 +35,7 @@ Provide it at highest common ancestor
 ```tsx
 function App() {
   return (
-    <useCoolContext.Provider>
+    <useCoolContext.Provider provide="baz">
       <Component />
     </useCoolContext.Provider>
   );

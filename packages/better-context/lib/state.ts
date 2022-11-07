@@ -1,6 +1,6 @@
 import type React from "react";
 
-function state<T>(input: [T, React.Dispatch<React.SetStateAction<T>>]) {
+function state<T>(input: [T, ((n: T | (((n: T) => T))) => T | void)]) {
   const [value, dispatch] = input;
 
   const state = {
